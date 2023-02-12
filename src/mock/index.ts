@@ -6,23 +6,23 @@ const StarWars1Question: Question= {
     type: "classic",
     variants: [
         {
-            id: 1,
+            id: '1',
             text: 'Obi Wan Kenobi'
         },
         {
-            id: 2,
+            id: '2',
             text: 'Anakin Skywalker'
         },
         {
-            id: 3,
+            id: '3',
             text: 'Django Fett'
         },
         {
-            id: 4,
+            id: '4',
             text: 'Jar Jar Binks'
         }
     ],
-    answer: 2,
+    answer: ['2','Anakin Skywalker'],
     isLast: false
 }
 const StarWars2Question: Question= {
@@ -31,23 +31,23 @@ const StarWars2Question: Question= {
     type: "classic",
     variants: [
         {
-            id: 1,
+            id: '1',
             text: 'Luke Skywalker'
         },
         {
-            id: 2,
+            id: '2',
             text: 'Anakin Skywalker'
         },
         {
-            id: 3,
+            id: '3',
             text: 'Han Solo'
         },
         {
-            id: 4,
+            id: '4',
             text: 'Jar Jar Binks'
         }
     ],
-    answer: 1,
+    answer: ['1','Luke Skywalker'],
     isLast: false
 }
 
@@ -57,23 +57,23 @@ const StarWars3Question: Question= {
     type: "classic",
     variants: [
         {
-            id: 1,
+            id: '1',
             text: 'Luke Skywalker'
         },
         {
-            id: 2,
+            id: '2',
             text: 'Obi Wan Kenobi'
         },
         {
-            id: 3,
+            id: '3',
             text: 'Han Solo'
         },
         {
-            id: 4,
+            id: '4',
             text: 'Darth Sidius'
         }
     ],
-    answer: 4,
+    answer: ['4','Darth Sidius'],
     isLast: true
 }
 
@@ -84,7 +84,7 @@ export const StarWarsQuiz : Quiz = {
     difficulty: 'medium',
     type:'classic',
     questions: [StarWars1Question, StarWars2Question, StarWars3Question],
-    answers: [2, 1, 4]
+    answers: [StarWars1Question.answer,StarWars2Question.answer,StarWars3Question.answer ]
 }
 
 export const quizes: Quiz[] = [StarWarsQuiz]

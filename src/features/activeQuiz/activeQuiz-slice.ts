@@ -8,7 +8,8 @@ interface activeQuizState {
     activeQuestion: Question["id"],
     userAnswers: Answer[],
     rightAnswers: Answer[],
-    rightAnswersAmount: number | null,
+    rightUserAnswers: Answer[]
+    rightUserAnswersAmount: number | null,
 }
 
 const initialState: activeQuizState = {
@@ -17,7 +18,23 @@ const initialState: activeQuizState = {
     questions: [],
     userAnswers: [],
     rightAnswers: [],
-    rightAnswersAmount: null
+    rightUserAnswers: [],
+    rightUserAnswersAmount: null
+}
+
+function arrayEquals(a: Answer, b: Answer) {
+    return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index]);
+}
+
+const checkAnswers = (userAnswers: Answer[], rightAnswers: Answer[]) => {
+    const usersRightAnswers = userAnswers.filter((userAnswer, index) => {
+        return arrayEquals(userAnswer,rightAnswers[index])
+    })
+    const usersRightAnswersAmaount = usersRightAnswers.length
+    return {usersRightAnswers,usersRightAnswersAmaount}
 }
 
 const activeQuizSlice = createSlice({
@@ -38,6 +55,8 @@ const activeQuizSlice = createSlice({
             state.activeQuestion = 0
             state.questions = []
             state.userAnswers.push(action.payload)
+            state.rightUserAnswers = checkAnswers(state.userAnswers,state.rightAnswers).usersRightAnswers
+            state.rightUserAnswersAmount = checkAnswers(state.userAnswers,state.rightAnswers).usersRightAnswersAmaount
         }
     }
 })
@@ -50,3 +69,5 @@ export const selectActiveQuestion = (state: RootState) => {
 }
 
 export const selectUserAnswers = (state: RootState) => state.activeQuiz.userAnswers
+export const selectRightUserAnswers = (state: RootState) => state.activeQuiz.rightUserAnswers
+export const selectRightUserAnswersAmount = (state: RootState) => state.activeQuiz.rightUserAnswersAmount

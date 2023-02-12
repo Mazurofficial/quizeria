@@ -4,7 +4,7 @@ import {
    answearQuestion,
    finishQuiz,
 } from '../../features/activeQuiz/activeQuiz-slice';
-import { Question } from '../../types';
+import { Answer, Question } from '../../types';
 import styles from './Question.module.scss';
 
 interface QuestionProps
@@ -17,18 +17,23 @@ export const QuestionContainer = ({
    isLast,
 }: QuestionProps) => {
    const dispatch = useAppDispatch();
-   const [answer, setAnswer] = useState('');
+   const [answer, setAnswer] = useState<Answer>(['', '']);
+   const [chekedId, setChekedId] = useState('');
 
    const onOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setAnswer(e.target.id);
+      setChekedId(e.target.id);
+      const userAnswer: Answer = [e.target.id, e.target.value];
+      setAnswer(userAnswer);
    };
 
    const answerTheQuestion = () => {
       if (isLast) {
-         setAnswer('');
+         setAnswer(['', '']);
+         setChekedId('');
          return dispatch(finishQuiz(answer));
       } else {
-         setAnswer('');
+         setAnswer(['', '']);
+         setChekedId('');
          return dispatch(answearQuestion(answer));
       }
    };
@@ -43,12 +48,12 @@ export const QuestionContainer = ({
                   <input
                      type="radio"
                      value={variant.text}
-                     id={variant.id.toString()}
+                     id={variant.id}
                      name="question"
                      onChange={onOptionChange}
-                     checked={answer === variant.id.toString()}
+                     checked={chekedId === variant.id}
                   />
-                  <label htmlFor={variant.id.toString()}>{variant.text}</label>
+                  <label htmlFor={variant.id}>{variant.text}</label>
                </div>
             ))}
             {isLast ? (

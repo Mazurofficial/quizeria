@@ -19,10 +19,10 @@ export type Question = {
 }
 
 export type Variant = {
-    id: number,
+    id: string,
     text?: string,
     imgUrl?: string,
     audioUrl?: string
 }
 
-export type Answer = Variant["id"]
+export type Answer = [Variant["id"],Variant["text"]]
