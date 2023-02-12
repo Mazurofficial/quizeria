@@ -14,7 +14,8 @@ export type Question = {
     type: 'classic' | 'true/false' | 'image' | 'audio',
     img_url?: string,
     variants: Variant[],
-    answer: Answer
+    answer: Answer,
+    isLast: boolean
 }
 
 export type Variant = {

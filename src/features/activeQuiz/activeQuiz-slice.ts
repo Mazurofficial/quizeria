@@ -1,19 +1,22 @@
+import { RootState } from './../../app/store';
 import { createSlice } from '@reduxjs/toolkit';
 import { Answer, Question } from '../../types';
 
 interface activeQuizState {
     id: number | null,
     questions: Question[],
-    activeQuestion: Question["id"] | null,
+    activeQuestion: Question["id"],
     userAnswers: Answer[],
+    rightAnswers: Answer[],
     rightAnswersAmount: number | null,
 }
 
 const initialState: activeQuizState = {
     id: 1,
-    activeQuestion: null,
+    activeQuestion: 0,
     questions: [],
     userAnswers: [],
+    rightAnswers: [],
     rightAnswersAmount: null
 }
 
@@ -22,17 +25,28 @@ const activeQuizSlice = createSlice({
     initialState,
     reducers: {
         setActiveQuiz: (state, action) => {
-            state.id = action.payload
-        },
-        nextQuestion: (state) => {
-            if (state.activeQuestion)
-                state.activeQuestion = state.activeQuestion + 1
+            console.log(action.payload.questions)
+            state.questions = action.payload.questions
+            state.rightAnswers = action.payload.answers
         },
         answearQuestion: (state, action) => {
+            state.activeQuestion = state.activeQuestion + 1
             state.userAnswers.push(action.payload)
         },
-        finishQuiz: (state) => {
-            state = initialState
+        finishQuiz: (state,action) => {
+            state.id = 1
+            state.activeQuestion = 0
+            state.questions = []
+            state.userAnswers.push(action.payload)
         }
     }
 })
+
+export const {setActiveQuiz,answearQuestion,finishQuiz} = activeQuizSlice.actions
+export const activeQuizReducer = activeQuizSlice.reducer
+
+export const selectActiveQuestion = (state: RootState) => {
+        return state.activeQuiz.questions[state.activeQuiz.activeQuestion]
+}
+
+export const selectUserAnswers = (state: RootState) => state.activeQuiz.userAnswers
