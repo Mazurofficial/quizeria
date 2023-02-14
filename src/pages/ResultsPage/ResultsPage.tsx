@@ -3,7 +3,7 @@ import styles from './ResultsPage.module.scss';
 
 export const ResultsPage = () => {
    return (
-      <div>
+      <div className={styles.wrapper}>
          <ResultsContainer />
       </div>
    );

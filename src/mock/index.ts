@@ -2,7 +2,7 @@ import { Question, Quiz } from "../types";
 
 const StarWars1Question: Question= {
     id: 1,
-    title: "Who is Luke's farther ?",
+    title: "Who is Luke's father ?",
     type: "classic",
     variants: [
         {
@@ -50,7 +50,6 @@ const StarWars2Question: Question= {
     answer: ['1','Luke Skywalker'],
     isLast: false
 }
-
 const StarWars3Question: Question= {
     id: 3,
     title: "Who is Darth Vader's master ?",

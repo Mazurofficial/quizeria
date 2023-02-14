@@ -8,6 +8,8 @@ import {
 } from '../../features/activeQuiz/activeQuiz-slice';
 import { useEffect } from 'react';
 import { getQuizById } from '../../api';
+import { StopWatch } from '../../features/stopWatch/StopWatch';
+import { setActive } from '../../features/stopWatch/stopWatch-slice';
 
 export const QuizPage = () => {
    const activeQuiz = getQuizById(quizes, 1);
@@ -15,6 +17,7 @@ export const QuizPage = () => {
 
    useEffect(() => {
       dispatch(setActiveQuiz(activeQuiz));
+      dispatch(setActive());
    }, [dispatch, activeQuiz]);
 
    const activeQuestion = useAppSelector(selectActiveQuestion);
@@ -28,6 +31,9 @@ export const QuizPage = () => {
                variants={activeQuestion.variants}
             />
          )}
+         <div>
+            <StopWatch />
+         </div>
       </div>
    );
 };

@@ -8,8 +8,9 @@ interface activeQuizState {
     activeQuestion: Question["id"],
     userAnswers: Answer[],
     rightAnswers: Answer[],
-    rightUserAnswers: Answer[]
+    checkedAnswers: Answer[]
     rightUserAnswersAmount: number | null,
+    watchStart: boolean
 }
 
 const initialState: activeQuizState = {
@@ -18,23 +19,33 @@ const initialState: activeQuizState = {
     questions: [],
     userAnswers: [],
     rightAnswers: [],
-    rightUserAnswers: [],
-    rightUserAnswersAmount: null
+    checkedAnswers: [],
+    rightUserAnswersAmount: null,
+    watchStart: false
 }
 
-function arrayEquals(a: Answer, b: Answer) {
-    return Array.isArray(a) &&
-      Array.isArray(b) &&
-      a.length === b.length &&
-      a.every((val, index) => val === b[index]);
+// helper for checking right Answers
+function arrayEquals(userAnswer: Answer, rightAnswer: Answer) {
+    return Array.isArray(userAnswer) &&
+      Array.isArray(rightAnswer) &&
+      userAnswer.length === rightAnswer.length &&
+      userAnswer.every((val, index) => val === rightAnswer[index]);
 }
 
+// checks user's answers
 const checkAnswers = (userAnswers: Answer[], rightAnswers: Answer[]) => {
-    const usersRightAnswers = userAnswers.filter((userAnswer, index) => {
+    const checkedAnswers: Answer[] = userAnswers.map((userAnswer,index)=>{
+        if (arrayEquals(userAnswer,rightAnswers[index])) {
+            return [...userAnswer]
+        } else {
+            return ['','Wrong']
+        }
+    })
+    const usersRightAnswers: Answer[] = userAnswers.filter((userAnswer, index) => {
         return arrayEquals(userAnswer,rightAnswers[index])
     })
-    const usersRightAnswersAmaount = usersRightAnswers.length
-    return {usersRightAnswers,usersRightAnswersAmaount}
+    const usersRightAnswersAmount = usersRightAnswers.length
+    return {checkedAnswers,usersRightAnswersAmount}
 }
 
 const activeQuizSlice = createSlice({
@@ -42,9 +53,10 @@ const activeQuizSlice = createSlice({
     initialState,
     reducers: {
         setActiveQuiz: (state, action) => {
-            console.log(action.payload.questions)
             state.questions = action.payload.questions
             state.rightAnswers = action.payload.answers
+            state.checkedAnswers = []
+            state.rightUserAnswersAmount = null
         },
         answearQuestion: (state, action) => {
             state.activeQuestion = state.activeQuestion + 1
@@ -55,8 +67,9 @@ const activeQuizSlice = createSlice({
             state.activeQuestion = 0
             state.questions = []
             state.userAnswers.push(action.payload)
-            state.rightUserAnswers = checkAnswers(state.userAnswers,state.rightAnswers).usersRightAnswers
-            state.rightUserAnswersAmount = checkAnswers(state.userAnswers,state.rightAnswers).usersRightAnswersAmaount
+            state.checkedAnswers = checkAnswers(state.userAnswers,state.rightAnswers).checkedAnswers
+            state.rightUserAnswersAmount = checkAnswers(state.userAnswers,state.rightAnswers).usersRightAnswersAmount
+            state.userAnswers = []
         }
     }
 })
@@ -69,5 +82,5 @@ export const selectActiveQuestion = (state: RootState) => {
 }
 
 export const selectUserAnswers = (state: RootState) => state.activeQuiz.userAnswers
-export const selectRightUserAnswers = (state: RootState) => state.activeQuiz.rightUserAnswers
+export const selectCheckedUserAnswers = (state: RootState) => state.activeQuiz.checkedAnswers
 export const selectRightUserAnswersAmount = (state: RootState) => state.activeQuiz.rightUserAnswersAmount
