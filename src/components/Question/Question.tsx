@@ -5,6 +5,7 @@ import {
    finishQuiz,
 } from '../../features/activeQuiz/activeQuiz-slice';
 import { Answer, Question } from '../../types';
+import { Button } from '../../ui/Button';
 import styles from './Question.module.scss';
 
 interface QuestionProps
@@ -57,9 +58,9 @@ export const QuestionContainer = ({
                </div>
             ))}
             {isLast ? (
-               <button onClick={answerTheQuestion}>Finish Quiz</button>
+               <Button onClick={answerTheQuestion}>Finish Quiz</Button>
             ) : (
-               <button onClick={answerTheQuestion}>Next Question</button>
+               <Button onClick={answerTheQuestion}>Next question</Button>
             )}
          </>
       </div>

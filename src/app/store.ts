@@ -1,4 +1,3 @@
-import { stopWatchReducer } from './../features/stopWatch/stopWatch-slice';
 import { activeQuizReducer } from './../features/activeQuiz/activeQuiz-slice';
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
@@ -10,8 +9,7 @@ const persistedStore = loadState()
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    activeQuiz: activeQuizReducer,
-    stopWatch: stopWatchReducer
+    activeQuiz: activeQuizReducer
   },
   preloadedState: persistedStore,
   devTools: true
