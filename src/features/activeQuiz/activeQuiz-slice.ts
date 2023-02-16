@@ -10,7 +10,7 @@ interface activeQuizState {
     rightAnswers: Answer[],
     checkedAnswers: Answer[]
     rightUserAnswersAmount: number | null,
-    watchStart: boolean
+    quizProgress: number
 }
 
 const initialState: activeQuizState = {
@@ -21,7 +21,7 @@ const initialState: activeQuizState = {
     rightAnswers: [],
     checkedAnswers: [],
     rightUserAnswersAmount: null,
-    watchStart: false
+    quizProgress: 0
 }
 
 // helper for checking right Answers
@@ -57,16 +57,19 @@ const activeQuizSlice = createSlice({
             state.rightAnswers = action.payload.answers
             state.checkedAnswers = []
             state.rightUserAnswersAmount = null
+            state.quizProgress = (state.activeQuestion/state.questions.length)*100
         },
         answearQuestion: (state, action) => {
             state.activeQuestion = state.activeQuestion + 1
             state.userAnswers.push(action.payload)
+            state.quizProgress = (state.activeQuestion/state.questions.length)*100
         },
         finishQuiz: (state,action) => {
             state.id = 1
             state.activeQuestion = 0
             state.questions = []
             state.userAnswers.push(action.payload)
+            state.quizProgress = 100
             state.checkedAnswers = checkAnswers(state.userAnswers,state.rightAnswers).checkedAnswers
             state.rightUserAnswersAmount = checkAnswers(state.userAnswers,state.rightAnswers).usersRightAnswersAmount
             state.userAnswers = []
@@ -80,7 +83,7 @@ export const activeQuizReducer = activeQuizSlice.reducer
 export const selectActiveQuestion = (state: RootState) => {
         return state.activeQuiz.questions[state.activeQuiz.activeQuestion]
 }
-
+export const selectQuizProgress = (state: RootState) => state.activeQuiz.quizProgress
 export const selectUserAnswers = (state: RootState) => state.activeQuiz.userAnswers
 export const selectCheckedUserAnswers = (state: RootState) => state.activeQuiz.checkedAnswers
 export const selectRightUserAnswersAmount = (state: RootState) => state.activeQuiz.rightUserAnswersAmount
