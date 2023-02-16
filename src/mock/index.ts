@@ -6,23 +6,23 @@ const StarWars1Question: Question= {
     type: "classic",
     variants: [
         {
-            id: '1',
+            id: 'A',
             text: 'Obi Wan Kenobi'
         },
         {
-            id: '2',
+            id: 'B',
             text: 'Anakin Skywalker'
         },
         {
-            id: '3',
+            id: 'C',
             text: 'Django Fett'
         },
         {
-            id: '4',
+            id: 'D',
             text: 'Jar Jar Binks'
         }
     ],
-    answer: ['2','Anakin Skywalker'],
+    answer: ['B','Anakin Skywalker'],
     isLast: false
 }
 const StarWars2Question: Question= {
@@ -31,23 +31,23 @@ const StarWars2Question: Question= {
     type: "classic",
     variants: [
         {
-            id: '1',
+            id: 'A',
             text: 'Luke Skywalker'
         },
         {
-            id: '2',
+            id: 'B',
             text: 'Anakin Skywalker'
         },
         {
-            id: '3',
+            id: 'C',
             text: 'Han Solo'
         },
         {
-            id: '4',
+            id: 'D',
             text: 'Jar Jar Binks'
         }
     ],
-    answer: ['1','Luke Skywalker'],
+    answer: ['A','Luke Skywalker'],
     isLast: false
 }
 const StarWars3Question: Question= {
@@ -56,23 +56,23 @@ const StarWars3Question: Question= {
     type: "classic",
     variants: [
         {
-            id: '1',
+            id: 'A',
             text: 'Luke Skywalker'
         },
         {
-            id: '2',
+            id: 'B',
             text: 'Obi Wan Kenobi'
         },
         {
-            id: '3',
+            id: 'C',
             text: 'Han Solo'
         },
         {
-            id: '4',
+            id: 'D',
             text: 'Darth Sidius'
         }
     ],
-    answer: ['4','Darth Sidius'],
+    answer: ['D','Darth Sidius'],
     isLast: true
 }
 

@@ -6,6 +6,7 @@ import {
 } from '../../features/activeQuiz/activeQuiz-slice';
 import { Answer, Question } from '../../types';
 import { Button } from '../../ui/Button';
+import { VariantsList } from '../VariantsList';
 import styles from './Question.module.scss';
 
 interface QuestionProps
@@ -19,22 +20,13 @@ export const QuestionContainer = ({
 }: QuestionProps) => {
    const dispatch = useAppDispatch();
    const [answer, setAnswer] = useState<Answer>(['', '']);
-   const [chekedId, setChekedId] = useState('');
-
-   const onOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setChekedId(e.target.id);
-      const userAnswer: Answer = [e.target.id, e.target.value];
-      setAnswer(userAnswer);
-   };
 
    const answerTheQuestion = () => {
       if (isLast) {
          setAnswer(['', '']);
-         setChekedId('');
          return dispatch(finishQuiz(answer));
       } else {
          setAnswer(['', '']);
-         setChekedId('');
          return dispatch(answearQuestion(answer));
       }
    };
@@ -44,19 +36,7 @@ export const QuestionContainer = ({
          <>
             <h2>{title}</h2>
             {img_url && <img alt={img_url} src={img_url} />}
-            {variants.map((variant) => (
-               <div key={variant.id}>
-                  <input
-                     type="radio"
-                     value={variant.text}
-                     id={variant.id}
-                     name="question"
-                     onChange={onOptionChange}
-                     checked={chekedId === variant.id}
-                  />
-                  <label htmlFor={variant.id}>{variant.text}</label>
-               </div>
-            ))}
+            <VariantsList variants={variants} setAnswer={setAnswer} />
             {isLast ? (
                <Button onClick={answerTheQuestion}>Finish Quiz</Button>
             ) : (
