@@ -1,14 +1,14 @@
 import { RootState } from './../../app/store';
 import { createSlice } from '@reduxjs/toolkit';
-import { Answer, Question } from '../../types';
+import { AnswerType, QuestionType } from '../../types';
 
 interface activeQuizState {
     id: number | null,
-    questions: Question[],
-    activeQuestion: Question["id"],
-    userAnswers: Answer[],
-    rightAnswers: Answer[],
-    checkedAnswers: Answer[]
+    questions: QuestionType[],
+    activeQuestion: QuestionType["id"],
+    userAnswers: AnswerType[],
+    rightAnswers: AnswerType[],
+    checkedAnswers: AnswerType[]
     rightUserAnswersAmount: number | null,
     quizProgress: number
 }
@@ -25,7 +25,7 @@ const initialState: activeQuizState = {
 }
 
 // helper for checking right Answers
-function arrayEquals(userAnswer: Answer, rightAnswer: Answer) {
+function arrayEquals(userAnswer: AnswerType, rightAnswer: AnswerType) {
     return Array.isArray(userAnswer) &&
       Array.isArray(rightAnswer) &&
       userAnswer.length === rightAnswer.length &&
@@ -33,15 +33,15 @@ function arrayEquals(userAnswer: Answer, rightAnswer: Answer) {
 }
 
 // checks user's answers
-const checkAnswers = (userAnswers: Answer[], rightAnswers: Answer[]) => {
-    const checkedAnswers: Answer[] = userAnswers.map((userAnswer,index)=>{
+const checkAnswers = (userAnswers: AnswerType[], rightAnswers: AnswerType[]) => {
+    const checkedAnswers: AnswerType[] = userAnswers.map((userAnswer,index)=>{
         if (arrayEquals(userAnswer,rightAnswers[index])) {
             return [...userAnswer]
         } else {
             return ['','Wrong']
         }
     })
-    const usersRightAnswers: Answer[] = userAnswers.filter((userAnswer, index) => {
+    const usersRightAnswers: AnswerType[] = userAnswers.filter((userAnswer, index) => {
         return arrayEquals(userAnswer,rightAnswers[index])
     })
     const usersRightAnswersAmount = usersRightAnswers.length
@@ -87,3 +87,4 @@ export const selectQuizProgress = (state: RootState) => state.activeQuiz.quizPro
 export const selectUserAnswers = (state: RootState) => state.activeQuiz.userAnswers
 export const selectCheckedUserAnswers = (state: RootState) => state.activeQuiz.checkedAnswers
 export const selectRightUserAnswersAmount = (state: RootState) => state.activeQuiz.rightUserAnswersAmount
+export const selectQuestionsAmount = (state: RootState) => state.activeQuiz.questions.length

@@ -6,8 +6,10 @@ import { ResultsPage } from './pages/ResultsPage';
 function App() {
    return (
       <div className="App">
-         <QuizPage />
-         <ResultsPage />
+         <div className="wrapper">
+            <QuizPage />
+            <ResultsPage />
+         </div>
       </div>
    );
 }

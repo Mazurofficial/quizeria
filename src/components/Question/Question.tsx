@@ -1,48 +1,36 @@
-import { useState } from 'react';
-import { useAppDispatch } from '../../app/hooks';
+import { useAppSelector } from '../../app/hooks';
 import {
-   answearQuestion,
-   finishQuiz,
+   selectActiveQuestion,
+   selectQuestionsAmount,
 } from '../../features/activeQuiz/activeQuiz-slice';
-import { Answer, Question } from '../../types';
-import { Button } from '../../ui/Button';
+import { AnswerType } from '../../types';
 import { VariantsList } from '../VariantsList';
 import styles from './Question.module.scss';
 
-interface QuestionProps
-   extends Pick<Question, 'title' | 'variants' | 'img_url' | 'isLast'> {}
+interface QuestionProps {
+   setAnswer: React.Dispatch<React.SetStateAction<AnswerType>>;
+}
 
-export const QuestionContainer = ({
-   title,
-   variants,
-   img_url,
-   isLast,
-}: QuestionProps) => {
-   const dispatch = useAppDispatch();
-   const [answer, setAnswer] = useState<Answer>(['', '']);
-
-   const answerTheQuestion = () => {
-      if (isLast) {
-         setAnswer(['', '']);
-         return dispatch(finishQuiz(answer));
-      } else {
-         setAnswer(['', '']);
-         return dispatch(answearQuestion(answer));
-      }
-   };
-
+export const Question = ({ setAnswer }: QuestionProps) => {
+   const activeQuestion = useAppSelector(selectActiveQuestion);
+   const questionsAmount = useAppSelector(selectQuestionsAmount);
    return (
       <div className={styles.question}>
-         <>
-            <h2>{title}</h2>
-            {img_url && <img alt={img_url} src={img_url} />}
-            <VariantsList variants={variants} setAnswer={setAnswer} />
-            {isLast ? (
-               <Button onClick={answerTheQuestion}>Finish Quiz</Button>
-            ) : (
-               <Button onClick={answerTheQuestion}>Next question</Button>
+         <h2>Question {`${activeQuestion.id}/${questionsAmount}`}</h2>
+         <p className={styles.question_Title}>{activeQuestion.title}</p>
+         <div className={styles.question_Varints}>
+            {activeQuestion.img_url && (
+               <img
+                  alt={activeQuestion.img_url}
+                  src={activeQuestion.img_url}
+                  className={styles.question_Image}
+               />
             )}
-         </>
+            <VariantsList
+               variants={activeQuestion.variants}
+               setAnswer={setAnswer}
+            />
+         </div>
       </div>
    );
 };

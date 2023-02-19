@@ -1,3 +1,3 @@
-import { Quiz } from "./quiz"
+import { QuizType } from "./quiz"
 
-export type Filter = Quiz["difficulty" | "category" | "type"]
+export type Filter = QuizType["difficulty" | "category" | "type"]

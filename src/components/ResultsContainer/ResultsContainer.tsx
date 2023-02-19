@@ -4,14 +4,16 @@ import {
    selectRightUserAnswersAmount,
    selectUserAnswers,
 } from '../../features/activeQuiz/activeQuiz-slice';
-import { Answer } from '../../types';
+import { AnswerType } from '../../types';
 import styles from './ResultsContainer.module.scss';
 
 // interface ResultsContainerProps {}
 
 export const ResultsContainer = () => {
-   const userAnswers: Answer[] = useAppSelector(selectUserAnswers);
-   const checkedAnswers: Answer[] = useAppSelector(selectCheckedUserAnswers);
+   const userAnswers: AnswerType[] = useAppSelector(selectUserAnswers);
+   const checkedAnswers: AnswerType[] = useAppSelector(
+      selectCheckedUserAnswers
+   );
    const userRightAnswersAmount = useAppSelector(selectRightUserAnswersAmount);
 
    return (

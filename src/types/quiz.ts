@@ -1,28 +1,28 @@
-export type Quiz = {
+export type QuizType = {
     id: number,
     title: string,
-    questions: Question[],
+    questions: QuestionType[],
     difficulty: 'easy' | 'medium' | 'hard',
     category: 'films' | 'series' | 'games' | 'animated films'
     type: 'classic' | 'interactive' | 'true/false' | 'image' | 'audio',
-    answers: Answer[]
+    answers: AnswerType[]
 }
 
-export type Question = {
+export type QuestionType = {
     id: number,
     title: string,
     type: 'classic' | 'true/false' | 'image' | 'audio',
     img_url?: string,
-    variants: Variant[],
-    answer: Answer,
+    variants: VariantType[],
+    answer: AnswerType,
     isLast: boolean
 }
 
-export type Variant = {
+export type VariantType = {
     id: string,
     text?: string,
     imgUrl?: string,
     audioUrl?: string
 }
 
-export type Answer = [Variant["id"],Variant["text"]]
+export type AnswerType = [VariantType["id"],VariantType["text"]]

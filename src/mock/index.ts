@@ -1,7 +1,8 @@
-import { Question, Quiz } from "../types";
+import { QuestionType, QuizType } from "../types";
 
-const StarWars1Question: Question= {
+const StarWars1Question: QuestionType= {
     id: 1,
+    img_url:'https://wallpaperaccess.com/full/714096.jpg',
     title: "Who is Luke's father ?",
     type: "classic",
     variants: [
@@ -25,7 +26,7 @@ const StarWars1Question: Question= {
     answer: ['B','Anakin Skywalker'],
     isLast: false
 }
-const StarWars2Question: Question= {
+const StarWars2Question: QuestionType= {
     id: 2,
     title: "Who is Darth Vader's son ?",
     type: "classic",
@@ -50,7 +51,7 @@ const StarWars2Question: Question= {
     answer: ['A','Luke Skywalker'],
     isLast: false
 }
-const StarWars3Question: Question= {
+const StarWars3Question: QuestionType= {
     id: 3,
     title: "Who is Darth Vader's master ?",
     type: "classic",
@@ -76,7 +77,7 @@ const StarWars3Question: Question= {
     isLast: true
 }
 
-export const StarWarsQuiz : Quiz = {
+export const StarWarsQuiz : QuizType = {
     id: 1,
     title: 'Star Wars quiz',
     category: 'films',
@@ -86,4 +87,4 @@ export const StarWarsQuiz : Quiz = {
     answers: [StarWars1Question.answer,StarWars2Question.answer,StarWars3Question.answer ]
 }
 
-export const quizes: Quiz[] = [StarWarsQuiz]
+export const quizes: QuizType[] = [StarWarsQuiz]
