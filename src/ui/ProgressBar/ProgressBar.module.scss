@@ -1,10 +1,10 @@
 .container {
     width: 100%;
     height: 2px;
-    background: #9EB1AE;
+    background: var(--default-color);
 }
 
 .progressBar {
     height: 100%;
-    background: #30525B;
+    background: var(--default-color-active);
 }

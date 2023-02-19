@@ -10,9 +10,18 @@
 
   --white: #FFF;
 
+  /* default style variables  */
   --default-text-color: #000;
-  --default-color: #000;
-  --default-color-hover: #000;
+  --default-color: #9EB1AE;
+  --default-color-active: #30525B;
+
+  --default-heading-font: 'Montserrat Alternates', sans-serif;
+  --default-text-font: 'Fira Sans', sans-serif;
+
+  --default-border-radius: 15px;
+  --default-shadow: 0px 3px 15px rgba(0, 0, 0, 0.25);
+  /* default style variables  */
+
 
   --sifi-text-color: #000;
   --sifi-color: #000;
@@ -23,14 +32,12 @@
   --animated-color-hover: #000;
 
   --error-color: #F74646;
-
-  --shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
 }
 
-body{
-  font-family: 'Montserrat Alternates', sans-serif
+/* body{
+  font-family: var(--default-text-font);
 }
 body[data-theme='sifi'] {}
 body[data-theme='animated'] {}
 body[data-theme='fantasy'] {}
-body[data-theme='horror'] {}
+body[data-theme='horror'] {} */

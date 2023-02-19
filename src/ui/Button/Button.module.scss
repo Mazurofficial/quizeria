@@ -1,15 +1,15 @@
 .btn {
     cursor: pointer;
 
-    color: #fff;
+    color: var(--white);
     padding: 13px 20px;
 
-    font-family: 'Montserrat Alternates';
+    font-family: var(--default-heading-font);
     font-size: 20px;
     font-weight: 400;
 
-    background: #9EB1AE;
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.25);
+    background: var(--default-color);
+    box-shadow: var(--default-shadow);
 
     border: none;
     border-radius: 50px;
@@ -22,5 +22,5 @@
 }
 
 .btn:active {
-    background: #30525B;
+    background: var(--default-color-active);
 }
