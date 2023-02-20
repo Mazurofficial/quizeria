@@ -1,19 +1,12 @@
-import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
 
 interface ButtonProps {
-   onClick?: () => {};
+   onClick: () => {};
    children: React.ReactNode;
-   isLink: boolean;
-   link?: string;
 }
 
-export const Button = ({ children, onClick, isLink, link }: ButtonProps) => {
-   return isLink ? (
-      <Link className={styles.btn} onClick={onClick} to={`/${link}`}>
-         {children}
-      </Link>
-   ) : (
+export const Button = ({ children, onClick }: ButtonProps) => {
+   return (
       <button className={styles.btn} onClick={onClick}>
          {children}
       </button>
