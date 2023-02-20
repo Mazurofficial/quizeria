@@ -9,8 +9,9 @@ export const BadgeList = ({ badges }: BadgeListProps) => {
    return (
       <div className={styles.badgeList}>
          {badges.map((badge) => {
-            return <Badge title={badge} />;
+            return <Badge title={badge} /> ;
          })}
+         
       </div>
    );
 };

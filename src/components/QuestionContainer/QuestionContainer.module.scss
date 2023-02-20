@@ -2,10 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
     backdrop-filter: blur(12.5px);
     padding: 31px;
-
     position: relative;
     border-radius: 15px;
 
@@ -22,5 +20,24 @@
             linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
+    }
+
+    &_circle1 {
+        position: absolute;
+        width: 196px;
+        height: 196px;
+        right: -100px;
+        top: 40px;
+        border-radius: 50%;
+        background: radial-gradient(95.33% 95.33% at 50% 0%, #9EB1AE 0%, #30525B 50.65%);
+    }
+    &_circle2 {
+        border-radius: 50%;
+        position: absolute;
+        width: 207px;
+        height: 207px;
+        left: -100px;
+        top: 540px;
+        background: radial-gradient(88.08% 88.08% at 43.72% 7.25%, #E2ECEF 5.71%, #9EB1AE 50.65%);
     }
 }

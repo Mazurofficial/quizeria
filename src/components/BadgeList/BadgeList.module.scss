@@ -1,1 +1,8 @@
-.badgeList {}
+.badgeList {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    padding: 20px 0px;
+    font-family: var(--default-text-font);
+}

@@ -20,8 +20,14 @@ export const QuizPage = () => {
    const activeQuestion = useAppSelector(selectActiveQuestion);
 
    return (
+
       <div className={styles.quizPage}>
-         <div className={styles.quizPage_circle}></div>
+         <div className={styles.quizPage_logo1}>
+            <div className={styles.quizPage_logo2}>
+               <h1>Quizeria</h1>
+               <div className={styles.quizPage_line}></div>
+            </div>
+         </div>
          {activeQuestion && <QuestionContainer />}
       </div>
    );

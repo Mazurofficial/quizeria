@@ -29,6 +29,9 @@ export const QuestionContainer = () => {
    };
 
    return (
+      <>
+      <div className={styles.container_circle1}></div>
+      <div className={styles.container_circle2}></div>
       <div className={styles.container}>
          <ProgressBar completed={quizProgress} />
          <Question setAnswer={setAnswer} />
@@ -42,5 +45,6 @@ export const QuestionContainer = () => {
             </Button>
          )}
       </div>
+      </>
    );
 };

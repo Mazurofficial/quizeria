@@ -1,11 +1,32 @@
-.quizPage {}
+.quizPage {
+    padding: 40px 0;
+    position: relative;
+    &_logo1{
+        display: flex;
+        flex-direction: column;
+        align-items:start;
+    }
+    &_logo2{
+       
+        align-items:center;
+    }
 
-.quizPage_circle {
-    position: absolute;
-    width: 196px;
-    height: 196px;
-    left: 991px;
-    top: 11px;
-    border-radius: 100px;
-    background: radial-gradient(95.33% 95.33% at 50% 0%, #9EB1AE 0%, #30525B 50.65%);
+    h1 {
+        font-family: var(--default-heading-font);
+        font-style: normal;
+        font-weight: 300;
+        font-size: 32px;
+        line-height: 28px;
+        color: var(--sifi-text-color);
+
+    }
+
+    &_line {
+        width: 68px;
+        height: 0px;
+        border: 1px solid var(--sifi-text-color);
+        margin: 15px 0 30px 0;
+        
+    }
 }
+

@@ -9,4 +9,12 @@
     box-shadow: var(--default-shadow);
     width: fit-content;
     border-radius: 50px;
+
+    align-self: center;
+    justify-self: center;
+
+    &:hover{
+        background-color: var( --default-color);
+        color:var(--white);
+    }
 }
