@@ -1,0 +1,12 @@
+.badge {
+    font-family: var(--default-text-font);
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+
+    background-color: var(--white);
+    padding: 10px 20px;
+    box-shadow: var(--default-shadow);
+    width: fit-content;
+    border-radius: 50px;
+}
