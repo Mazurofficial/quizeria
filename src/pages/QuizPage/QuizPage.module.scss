@@ -1,1 +1,12 @@
 .quizPage {}
+
+.quizPage_circle{
+position: absolute;
+width: 196px;
+height: 196px;
+left: 991px;
+top: 11px;
+border-radius: 100px;
+
+background: radial-gradient(95.33% 95.33% at 50% 0%, #9EB1AE 0%, #30525B 50.65%);
+}

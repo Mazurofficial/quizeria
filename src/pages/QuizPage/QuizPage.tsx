@@ -21,6 +21,7 @@ export const QuizPage = () => {
 
    return (
       <div className={styles.quizPage}>
+         <div className={styles.quizPage_circle}></div>
          {activeQuestion && <QuestionContainer />}
       </div>
    );
