@@ -30,17 +30,15 @@ export const QuestionContainer = () => {
 
    return (
       <div className={styles.container}>
-         <ProgressBar completed={quizProgress} />
-         <Question setAnswer={setAnswer} />
-         {isQuestionLast ? (
-            <Button onClick={answerTheQuestion} isLink={true} link="results">
-               Finish Quiz
-            </Button>
-         ) : (
-            <Button onClick={answerTheQuestion} isLink={false}>
-               Answer question
-            </Button>
-         )}
+         <>
+            <ProgressBar completed={quizProgress} />
+            <Question setAnswer={setAnswer} />
+            {isQuestionLast ? (
+               <Button onClick={answerTheQuestion}>Finish Quiz</Button>
+            ) : (
+               <Button onClick={answerTheQuestion}>Answer question</Button>
+            )}
+         </>
       </div>
    );
 };
