@@ -77,7 +77,7 @@ const StarWars3Question: QuestionType= {
     isLast: true
 }
 
-export const StarWarsQuiz : QuizType = {
+export const StarWarsQuiz1 : QuizType = {
     id: 1,
     img: 'https://wallpaperaccess.com/full/714096.jpg',
     title: 'Star Wars quiz',
@@ -89,4 +89,28 @@ export const StarWarsQuiz : QuizType = {
     answers: [StarWars1Question.answer,StarWars2Question.answer,StarWars3Question.answer ]
 }
 
-export const quizes: QuizType[] = [StarWarsQuiz]
+export const StarWarsQuiz2 : QuizType = {
+    id: 2,
+    img: 'https://wallpaperaccess.com/full/714096.jpg',
+    title: 'Star Wars quiz',
+    description:'Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.',
+    category: 'films',
+    difficulty: 'medium',
+    type:'classic',
+    questions: [StarWars1Question, StarWars2Question, StarWars3Question],
+    answers: [StarWars1Question.answer,StarWars2Question.answer,StarWars3Question.answer ]
+}
+
+export const StarWarsQuiz3 : QuizType = {
+    id: 3,
+    img: 'https://wallpaperaccess.com/full/714096.jpg',
+    title: 'Star Wars quiz',
+    description:'Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.',
+    category: 'films',
+    difficulty: 'medium',
+    type:'classic',
+    questions: [StarWars1Question, StarWars2Question, StarWars3Question],
+    answers: [StarWars1Question.answer,StarWars2Question.answer,StarWars3Question.answer ]
+}
+
+export const quizes: QuizType[] = [StarWarsQuiz1,StarWarsQuiz2,StarWarsQuiz3]

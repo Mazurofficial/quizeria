@@ -18,7 +18,9 @@ export const QuizInfoModal = () => {
             <img src={img} alt={title} />
             <div className={styles.quizInfoModal_Heading_Section}>
                <h3>{title}</h3>
-               <Button  isLink={true} link="#">Start </Button>
+               <Button isLink={true} link="quiz">
+                  Start{' '}
+               </Button>
             </div>
          </div>
          <div className={styles.quizInfoModal_Info}>
@@ -29,20 +31,40 @@ export const QuizInfoModal = () => {
             <div className={styles.quizInfoModal_Info_Badges}>
                <table>
                   <tr>
-                     <td> <h4>Difficulty:</h4></td>
-                     <td><p>{difficulty}</p></td>
+                     <td>
+                        {' '}
+                        <h4>Difficulty:</h4>
+                     </td>
+                     <td>
+                        <p>{difficulty}</p>
+                     </td>
                   </tr>
                   <tr>
-                     <td> <h4>Category:</h4></td>
-                     <td><p>{category}</p></td>
+                     <td>
+                        {' '}
+                        <h4>Category:</h4>
+                     </td>
+                     <td>
+                        <p>{category}</p>
+                     </td>
                   </tr>
                   <tr>
-                     <td> <h4>Questions:</h4></td>
-                     <td><p>20</p></td>
+                     <td>
+                        {' '}
+                        <h4>Questions:</h4>
+                     </td>
+                     <td>
+                        <p>20</p>
+                     </td>
                   </tr>
                   <tr>
-                     <td> <h4>Type:</h4></td>
-                     <td><p>{type}</p></td>
+                     <td>
+                        {' '}
+                        <h4>Type:</h4>
+                     </td>
+                     <td>
+                        <p>{type}</p>
+                     </td>
                   </tr>
                </table>
             </div>
