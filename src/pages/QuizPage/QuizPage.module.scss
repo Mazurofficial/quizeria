@@ -1,14 +1,15 @@
 .quizPage {
     padding: 40px 0;
     position: relative;
-    &_logo1{
+
+    &_logo1 {
         display: flex;
         flex-direction: column;
-        align-items:start;
+        align-items: flex-start;
     }
-    &_logo2{
-       
-        align-items:center;
+
+    &_logo2 {
+        align-items: center;
     }
 
     h1 {
@@ -26,7 +27,6 @@
         height: 0px;
         border: 1px solid var(--sifi-text-color);
         margin: 15px 0 30px 0;
-        
+
     }
 }
-

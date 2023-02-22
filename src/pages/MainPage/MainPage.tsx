@@ -2,9 +2,7 @@ import { CardList } from '../../components/CardList';
 import { MainBanner } from '../../components/MainBanner';
 import styles from './MainPage.module.scss';
 
-interface MainPageProps {}
-
-export const MainPage = ({}: MainPageProps) => {
+export const MainPage = () => {
    return (
       <div className={styles.mainPage}>
          <MainBanner />

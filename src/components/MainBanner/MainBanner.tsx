@@ -1,9 +1,7 @@
 import styles from './MainBanner.module.scss';
 import { Button } from '../../ui/Button';
 
-interface MainBannerProps {}
-
-export const MainBanner = ({}: MainBannerProps) => {
+export const MainBanner = () => {
    return (
       <>
          <div className={styles.mainBanner_circle1}></div>

@@ -15,6 +15,9 @@
         border-radius: 15px;
         padding: 3px;
         background: radial-gradient(62.65% 256.75% at 50% 47.32%, #FFFFFF 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(80.96% 331.8% at 49.88% 50.24%, #000000 0%, rgba(0, 0, 0, 0) 100%);
+        mask:
+            linear-gradient(#ffff 0 0) content-box,
+            linear-gradient(#fff 0 0);
         -webkit-mask:
             linear-gradient(#ffff 0 0) content-box,
             linear-gradient(#fff 0 0);
@@ -31,6 +34,7 @@
         border-radius: 50%;
         background: radial-gradient(95.33% 95.33% at 50% 0%, #9EB1AE 0%, #30525B 50.65%);
     }
+
     &_circle2 {
         border-radius: 50%;
         position: absolute;
