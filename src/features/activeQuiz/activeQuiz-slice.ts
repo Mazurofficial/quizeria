@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { AnswerType, QuestionType } from '../../types';
 
 interface activeQuizState {
-    id: number | null,
+    id: number,
     questions: QuestionType[],
     activeQuestion: QuestionType["id"],
     userAnswers: AnswerType[],
@@ -52,6 +52,9 @@ const activeQuizSlice = createSlice({
     name: '@@active-quiz',
     initialState,
     reducers: {
+        setQuizId: (state,action)=>{
+            state.id = action.payload
+        },
         setActiveQuiz: (state, action) => {
             state.questions = action.payload.questions
             state.rightAnswers = action.payload.answers
@@ -77,9 +80,10 @@ const activeQuizSlice = createSlice({
     }
 })
 
-export const {setActiveQuiz,answearQuestion,finishQuiz} = activeQuizSlice.actions
+export const {setQuizId,setActiveQuiz,answearQuestion,finishQuiz} = activeQuizSlice.actions
 export const activeQuizReducer = activeQuizSlice.reducer
 
+export const selectActiveQuizId = (state: RootState) => state.activeQuiz.id
 export const selectActiveQuestion = (state: RootState) => {
         return state.activeQuiz.questions[state.activeQuiz.activeQuestion]
 }

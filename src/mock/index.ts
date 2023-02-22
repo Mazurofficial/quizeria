@@ -79,7 +79,9 @@ const StarWars3Question: QuestionType= {
 
 export const StarWarsQuiz : QuizType = {
     id: 1,
+    img: 'https://wallpaperaccess.com/full/714096.jpg',
     title: 'Star Wars quiz',
+    description:'Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.',
     category: 'films',
     difficulty: 'medium',
     type:'classic',

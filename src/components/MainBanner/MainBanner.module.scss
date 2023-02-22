@@ -1,9 +1,12 @@
+.container {
+    position: relative;
+}
+
 .mainBanner {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 87px;
-    position: relative;
     border-radius: 15px;
     backdrop-filter: blur(12.5px);
 
@@ -68,7 +71,7 @@
         width: 207px;
         height: 207px;
         right: -90px;
-        top: 0px;
+        top: -60px;
         border-radius: 50%;
         background: radial-gradient(88.08% 88.08% at 43.72% 7.25%, #E2ECEF 5.71%, #9EB1AE 50.65%);
         filter: blur(12.5px);
@@ -79,7 +82,7 @@
         width: 265px;
         height: 265px;
         left: -132px;
-        top: 400px;
+        bottom: -100px;
         background: radial-gradient(95.33% 95.33% at 50% 0%, #9EB1AE 0%, #30525B 50.65%);
         border-radius: 50%;
     }

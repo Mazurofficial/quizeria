@@ -1,6 +1,8 @@
 export type QuizType = {
     id: number,
+    img: string,
     title: string,
+    description: string,
     questions: QuestionType[],
     difficulty: 'easy' | 'medium' | 'hard',
     category: 'films' | 'series' | 'games' | 'animated films'

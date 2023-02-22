@@ -3,13 +3,15 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 import { loadState, saveState } from './hooks';
 import throttle from 'lodash/throttle';
+import { modalReducer } from '../features/modalWindow/modalWindow-slice';
 
 const persistedStore = loadState()
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    activeQuiz: activeQuizReducer
+    activeQuiz: activeQuizReducer,
+    modal: modalReducer
   },
   preloadedState: persistedStore,
   devTools: true

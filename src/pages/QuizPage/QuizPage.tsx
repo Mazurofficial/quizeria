@@ -4,13 +4,15 @@ import { quizes } from '../../mock';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
    selectActiveQuestion,
+   selectActiveQuizId,
    setActiveQuiz,
 } from '../../features/activeQuiz/activeQuiz-slice';
 import { useEffect } from 'react';
 import { getQuizById } from '../../api';
 
 export const QuizPage = () => {
-   const activeQuiz = getQuizById(quizes, 1);
+   const quizId = useAppSelector(selectActiveQuizId);
+   const activeQuiz = getQuizById(quizes, quizId);
    const dispatch = useAppDispatch();
 
    useEffect(() => {
@@ -20,7 +22,6 @@ export const QuizPage = () => {
    const activeQuestion = useAppSelector(selectActiveQuestion);
 
    return (
-
       <div className={styles.quizPage}>
          <div className={styles.quizPage_logo1}>
             <div className={styles.quizPage_logo2}>

@@ -29,22 +29,22 @@ export const QuestionContainer = () => {
    };
 
    return (
-      <>
-      <div className={styles.container_circle1}></div>
-      <div className={styles.container_circle2}></div>
-      <div className={styles.container}>
-         <ProgressBar completed={quizProgress} />
-         <Question setAnswer={setAnswer} />
-         {isQuestionLast ? (
-            <Button onClick={answerTheQuestion} isLink={true} link="results">
-               Finish Quiz
-            </Button>
-         ) : (
-            <Button onClick={answerTheQuestion} isLink={false}>
-               Answer question
-            </Button>
-         )}
+      <div className={styles.maincontainer}>
+         <div className={styles.container_circle1}></div>
+         <div className={styles.container_circle2}></div>
+         <div className={styles.container}>
+            <ProgressBar completed={quizProgress} />
+            <Question setAnswer={setAnswer} />
+            {isQuestionLast ? (
+               <Button onClick={answerTheQuestion} isLink={true} link="results">
+                  Finish Quiz
+               </Button>
+            ) : (
+               <Button onClick={answerTheQuestion} isLink={false}>
+                  Answer question
+               </Button>
+            )}
+         </div>
       </div>
-      </>
    );
 };

@@ -1,4 +1,6 @@
 .badge {
+    cursor: pointer;
+
     font-family: var(--default-text-font);
     font-weight: 300;
     font-size: 20px;
@@ -13,8 +15,10 @@
     align-self: center;
     justify-self: center;
 
-    &:hover{
-        background-color: var( --default-color);
-        color:var(--white);
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        background-color: var(--default-color);
+        color: var(--white);
     }
 }

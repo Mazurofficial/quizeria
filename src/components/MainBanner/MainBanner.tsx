@@ -3,7 +3,7 @@ import { Button } from '../../ui/Button';
 
 export const MainBanner = () => {
    return (
-      <>
+      <div className={styles.container}>
          <div className={styles.mainBanner_circle1}></div>
          <div className={styles.mainBanner_circle2}></div>
          <div className={styles.mainBanner}>
@@ -22,6 +22,6 @@ export const MainBanner = () => {
                </Button>
             </div>
          </div>
-      </>
+      </div>
    );
 };

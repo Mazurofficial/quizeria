@@ -1,10 +1,13 @@
+.maincontainer {
+    position: relative;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     backdrop-filter: blur(12.5px);
     padding: 31px;
-    position: relative;
     border-radius: 15px;
 
     &::before {
@@ -30,7 +33,7 @@
         width: 196px;
         height: 196px;
         right: -100px;
-        top: 40px;
+        top: -100px;
         border-radius: 50%;
         background: radial-gradient(95.33% 95.33% at 50% 0%, #9EB1AE 0%, #30525B 50.65%);
     }
@@ -41,7 +44,7 @@
         width: 207px;
         height: 207px;
         left: -100px;
-        top: 540px;
+        bottom: -100px;
         background: radial-gradient(88.08% 88.08% at 43.72% 7.25%, #E2ECEF 5.71%, #9EB1AE 50.65%);
     }
 }
