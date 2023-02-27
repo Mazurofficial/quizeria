@@ -18,8 +18,8 @@ export const QuizInfoModal = () => {
             <img src={img} alt={title} />
             <div className={styles.quizInfoModal_Heading_Section}>
                <h3>{title}</h3>
-               <Button isLink={true} link="quiz">
-                  Start{' '}
+               <Button isLink={true} link={`quiz/${quizId}`}>
+                  Start
                </Button>
             </div>
          </div>

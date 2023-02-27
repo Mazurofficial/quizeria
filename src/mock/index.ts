@@ -76,9 +76,34 @@ const StarWars3Question: QuestionType= {
     answer: ['D','Darth Sidius'],
     isLast: true
 }
+const StarWars4Question: QuestionType= {
+    id: 4,
+    title: "Who is Anakin Skuwalker's padawan ?",
+    type: "classic",
+    variants: [
+        {
+            id: 'A',
+            text: 'Luke Skywalker'
+        },
+        {
+            id: 'B',
+            text: 'Obi Wan Kenobi'
+        },
+        {
+            id: 'C',
+            text: 'Asoka Tano'
+        },
+        {
+            id: 'D',
+            text: 'Darth Maul'
+        }
+    ],
+    answer: ['C','Asoka Tano'],
+    isLast: true
+}
 
 export const StarWarsQuiz1 : QuizType = {
-    id: 1,
+    id: '1',
     img: 'https://wallpaperaccess.com/full/714096.jpg',
     title: 'Star Wars quiz',
     description:'Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.',
@@ -90,19 +115,19 @@ export const StarWarsQuiz1 : QuizType = {
 }
 
 export const StarWarsQuiz2 : QuizType = {
-    id: 2,
+    id: '2',
     img: 'https://wallpaperaccess.com/full/714096.jpg',
     title: 'Star Wars quiz',
     description:'Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.',
     category: 'films',
     difficulty: 'medium',
     type:'classic',
-    questions: [StarWars1Question, StarWars2Question, StarWars3Question],
-    answers: [StarWars1Question.answer,StarWars2Question.answer,StarWars3Question.answer ]
+    questions: [StarWars1Question, StarWars2Question, StarWars4Question],
+    answers: [StarWars1Question.answer,StarWars2Question.answer,StarWars4Question.answer ]
 }
 
 export const StarWarsQuiz3 : QuizType = {
-    id: 3,
+    id: '3',
     img: 'https://wallpaperaccess.com/full/714096.jpg',
     title: 'Star Wars quiz',
     description:'Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.',

@@ -1,5 +1,5 @@
 export type QuizType = {
-    id: number,
+    id: string,
     img: string,
     title: string,
     description: string,

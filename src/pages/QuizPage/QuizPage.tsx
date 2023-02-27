@@ -4,14 +4,16 @@ import { quizes } from '../../mock';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
    selectActiveQuestion,
-   selectActiveQuizId,
    setActiveQuiz,
 } from '../../features/activeQuiz/activeQuiz-slice';
 import { useEffect } from 'react';
 import { getQuizById } from '../../api';
+import { useParams } from 'react-router';
 
 export const QuizPage = () => {
-   const quizId = useAppSelector(selectActiveQuizId);
+   const { id } = useParams();
+   const quizId = id ? id.toString() : '';
+   //const quizId = useAppSelector(selectActiveQuizId);
    const activeQuiz = getQuizById(quizes, quizId);
    const dispatch = useAppDispatch();
 

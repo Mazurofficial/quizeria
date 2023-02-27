@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { AnswerType, QuestionType } from '../../types';
 
 interface activeQuizState {
-    id: number,
+    id: string,
     questions: QuestionType[],
     activeQuestion: QuestionType["id"],
     userAnswers: AnswerType[],
@@ -14,7 +14,7 @@ interface activeQuizState {
 }
 
 const initialState: activeQuizState = {
-    id: 1,
+    id: '1',
     activeQuestion: 0,
     questions: [],
     userAnswers: [],
@@ -68,7 +68,7 @@ const activeQuizSlice = createSlice({
             state.quizProgress = (state.activeQuestion/state.questions.length)*100
         },
         finishQuiz: (state,action) => {
-            state.id = 1
+            state.id = '1'
             state.activeQuestion = 0
             state.questions = []
             state.userAnswers.push(action.payload)

@@ -5,7 +5,7 @@ import styles from './CardList.module.scss';
 export const CardList = () => {
    const quizList = quizes;
    return (
-      <div className={styles.cardList}>
+      <div className={styles.cardList} id="quizes">
          {quizList.map((quiz) => {
             return <QuizCard {...quiz} />;
          })}

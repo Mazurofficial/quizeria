@@ -11,7 +11,7 @@ function App() {
          <div className="wrapper">
             <Routes>
                <Route path="/" element={<MainPage />} />
-               <Route path="/quiz" element={<QuizPage />} />
+               <Route path="/quiz/:id" element={<QuizPage />} />
                <Route path="/results" element={<ResultsPage />} />
             </Routes>
          </div>
