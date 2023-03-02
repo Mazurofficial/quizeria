@@ -659,5 +659,127 @@ export const PixarQuiz : QuizType = {
     answers: [Pixar1Question.answer, Pixar2Question.answer, Pixar3Question.answer, Pixar4Question.answer, Pixar5Question.answer]
 }
 
-export const quizes: QuizType[] = [StarWarsQuiz,PlayStationQuiz, PixarQuiz]
+
+const Disney1Question: QuestionType= {
+    id: 1,
+    img_url: 'https://i.insider.com/5c11046aa9054804ed7ff4c3?width=1300&format=jpeg&auto=webp',
+    title: "In Disney's 101 Dalmatians, who is the villain trying to turn the puppies into coats?",
+    type: "classic",
+    variants: [
+        {
+            id: 'A',
+            text: 'Cruella de Vil'
+        },
+        {
+            id: 'B',
+            text: 'Ursula'
+        },
+        {
+            id: 'C',
+            text: 'Jafar'
+        },
+        {
+            id: 'D',
+            text: 'Scar'
+        }
+    ],
+    answer: ['A', 'Cruella de Vil'],
+    isLast: false
+};
+
+const Disney2Question: QuestionType= {
+    id: 2,
+    img_url: 'https://www.infobae.com/new-resizer/N-EU6H5aHJXl9osjc4X0Dsa0TH4=/1440x810/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/JQ45OQSRLFCW7D6F6AGRAOUZRY.jpg',
+    title: "What kind of fish is Nemo in Disney's Finding Nemo?",
+    type: "classic",
+    variants: [
+        {
+            id: 'A',
+            text: 'Clownfish'
+        },
+        {
+            id: 'B',
+            text: 'Angelfish'
+        },
+        {
+            id: 'C',
+            text: 'Guppy'
+        },
+        {
+            id: 'D',
+            text: 'Pufferfish'
+        }
+    ],
+    answer: ['A', 'Clownfish'],
+    isLast: false
+};
+
+const Disney3Question: QuestionType= {
+    id: 3,
+    img_url: 'https://media.cnn.com/api/v1/images/stellar/prod/221123180311-aladdin-1992.jpg?c=16x9&q=h_720,w_1280,c_fill',
+    title: "In Disney's Aladdin, what is the name of Jasmine's pet tiger?",
+    type: "classic",
+    variants: [
+        {
+            id: 'A',
+            text: 'Rajah'
+        },
+        {
+            id: 'B',
+            text: 'Simba'
+        },
+        {
+            id: 'C',
+            text: 'Pascal'
+        },
+        {
+            id: 'D',
+            text: 'Meeko'
+        }
+    ],
+    answer: ['A', 'Rajah'],
+    isLast: false
+};
+
+const Disney4Question: QuestionType= {
+    id: 4,
+    img_url: 'https://www.gannett-cdn.com/-mm-/b2b05a4ab25f4fca0316459e1c7404c537a89702/c=0-0-1365-768/local/-/media/2018/06/11/USATODAY/usatsports/promo322339620-e1507084189552.jpg?width=1320&height=744&fit=crop&format=pjpg&auto=webp',
+    title: "In Disney's Moana, what is the name of the demigod who joins Moana on her journey?",
+    type: "classic",
+    variants: [
+        {
+            id: 'A',
+            text: 'Maui'
+        },
+        {
+            id: 'B',
+            text: 'Hercules'
+        },
+        {
+            id: 'C',
+            text: 'Zeus'
+        },
+        {
+            id: 'D',
+            text: 'Perseus'
+        }
+    ],
+    answer: ['A', 'Maui'],
+    isLast: true
+};
+
+const DisneyQuiz: QuizType = {
+    id: '4',
+    img: 'https://i0.wp.com/thinkmonsters.com/speakinghuman/media/wp-content/uploads/Disney-Updated-Movie-Logo-2011.png?fit=2880%2C1514&ssl=1',
+    title: "Disney Films Quiz",
+    description: "Test your knowledge on classic Disney films!",
+    questions: [Disney1Question, Disney2Question, Disney3Question, Disney4Question],
+    difficulty: 'easy',
+    category: 'films',
+    type: 'classic',
+    answers: [Disney1Question.answer,Disney2Question.answer,Disney3Question.answer,Disney4Question.answer]
+};
+
+
+export const quizes: QuizType[] = [StarWarsQuiz,PlayStationQuiz, PixarQuiz,DisneyQuiz]
 
