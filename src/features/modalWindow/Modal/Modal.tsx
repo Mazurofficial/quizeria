@@ -19,18 +19,26 @@ export const Modal = ({ children }: ModalProps) => {
       dispatch(closeModal());
    }, [dispatch]);
 
-   return isVisible ? (
-      <div className={styles.modal}>
+   return (
+      <div
+         className={
+            isVisible ? `${styles.modal} ${styles.active}` : styles.modal
+         }
+         onClick={() => dispatch(closeModal())}
+      >
          <div
-            className={styles.modal_background}
-            onClick={() => dispatch(closeModal())}
-         ></div>
-         <div className={styles.modal_window}>
+            className={
+               isVisible
+                  ? `${styles.modal_window} ${styles.active}`
+                  : styles.modal_window
+            }
+            onClick={(e) => e.stopPropagation()}
+         >
             <span onClick={() => dispatch(closeModal())}>
                <DefaultCloseIcon />
             </span>
             {children}
          </div>
       </div>
-   ) : null;
+   );
 };
