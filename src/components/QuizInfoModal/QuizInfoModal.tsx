@@ -7,10 +7,8 @@ import styles from './QuizInfoModal.module.scss';
 
 export const QuizInfoModal = () => {
    const quizId = useAppSelector(selectActiveQuizId);
-   const { img, category, title, difficulty, type, description } = getQuizById(
-      quizes,
-      quizId
-   );
+   const { img, category, title, difficulty, type, description, questions } =
+      getQuizById(quizes, quizId);
 
    return (
       <div className={styles.quizInfoModal}>
@@ -54,7 +52,7 @@ export const QuizInfoModal = () => {
                         <h4>Questions:</h4>
                      </td>
                      <td>
-                        <p>20</p>
+                        <p>{questions.length}</p>
                      </td>
                   </tr>
                   <tr>
