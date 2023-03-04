@@ -4,6 +4,8 @@ import counterReducer from '../features/counter/counterSlice';
 import { loadState, saveState } from './hooks';
 import throttle from 'lodash/throttle';
 import { modalReducer } from '../features/modalWindow/modalWindow-slice';
+import { cardsFilterReducer } from '../features/cardsFilter/cardsFilter-slice';
+import { quizesReducer } from '../features/quizes/quizes-slice';
 
 const persistedStore = loadState()
 
@@ -11,7 +13,9 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
     activeQuiz: activeQuizReducer,
-    modal: modalReducer
+    modal: modalReducer,
+    filters: cardsFilterReducer,
+    quizes: quizesReducer
   },
   preloadedState: persistedStore,
   devTools: true

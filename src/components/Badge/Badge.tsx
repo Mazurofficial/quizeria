@@ -7,7 +7,7 @@ interface BadgeProps {
 
 export const Badge = ({ title, onClick }: BadgeProps) => {
    return (
-      <div className={styles.badge} onClick={(e) => e.stopPropagation()}>
+      <div className={styles.badge} onClick={onClick}>
          {title}
       </div>
    );

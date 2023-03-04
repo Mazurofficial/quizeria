@@ -1,3 +1,5 @@
+import { useAppDispatch } from '../../app/hooks';
+import { addFilter } from '../../features/cardsFilter/cardsFilter-slice';
 import { Badge } from '../Badge/Badge';
 import styles from './BadgeList.module.scss';
 
@@ -6,10 +8,19 @@ interface BadgeListProps {
 }
 
 export const BadgeList = ({ badges }: BadgeListProps) => {
+   const dispatch = useAppDispatch();
+
    return (
       <div className={styles.badgeList}>
          {badges.map((badge) => {
-            return <Badge title={badge} />;
+            return (
+               <div onClick={(e) => e.stopPropagation()}>
+                  <Badge
+                     title={badge}
+                     onClick={() => dispatch(addFilter(badge))}
+                  />
+               </div>
+            );
          })}
       </div>
    );

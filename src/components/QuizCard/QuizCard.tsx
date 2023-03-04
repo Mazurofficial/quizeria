@@ -24,7 +24,6 @@ export const QuizCard = ({
    );
 
    const dispatch = useAppDispatch();
-   //const activeQuiz = getQuizById(quizes, quizId);
 
    const handleCard = () => {
       dispatch(setQuizId(id));
