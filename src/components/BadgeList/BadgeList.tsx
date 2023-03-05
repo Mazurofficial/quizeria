@@ -1,6 +1,6 @@
 import { useAppDispatch } from '../../app/hooks';
 import { addFilter } from '../../features/cardsFilter/cardsFilter-slice';
-import { Badge } from '../Badge/Badge';
+import { Badge } from '../../ui/Badge/Badge';
 import styles from './BadgeList.module.scss';
 
 interface BadgeListProps {

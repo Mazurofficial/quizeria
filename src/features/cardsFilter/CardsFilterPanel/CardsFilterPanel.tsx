@@ -1,9 +1,9 @@
 import { useAppSelector } from '../../../app/hooks';
 import { useAppDispatch } from '../../../app/hooks';
-import { Badge } from '../../../components/Badge';
 import { Button } from '../../../ui/Button';
 import { clearFilters, selectFilters } from '../cardsFilter-slice';
 import styles from './CardsFilterPanel.module.scss';
+import { FilterBadge } from './FilterBadge';
 
 export const FilterPanel = () => {
    const filters = useAppSelector(selectFilters);
@@ -13,7 +13,7 @@ export const FilterPanel = () => {
       <div className={styles.filterPanel}>
          <div className={styles.filterPanel_badges}>
             {filters.map((filter) => {
-               return <Badge title={filter} />;
+               return <FilterBadge title={filter} />;
             })}
          </div>
          <Button isLink={false} onClick={() => dispatch(clearFilters())}>
