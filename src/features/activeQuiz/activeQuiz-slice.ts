@@ -9,7 +9,7 @@ interface activeQuizState {
     userAnswers: AnswerType[],
     rightAnswers: AnswerType[],
     checkedAnswers: AnswerType[]
-    rightUserAnswersAmount: number | null,
+    rightUserAnswersAmount: number,
     quizProgress: number
 }
 
@@ -20,7 +20,7 @@ const initialState: activeQuizState = {
     userAnswers: [],
     rightAnswers: [],
     checkedAnswers: [],
-    rightUserAnswersAmount: null,
+    rightUserAnswersAmount: 0,
     quizProgress: 0
 }
 
@@ -59,7 +59,7 @@ const activeQuizSlice = createSlice({
             state.questions = action.payload.questions
             state.rightAnswers = action.payload.answers
             state.checkedAnswers = []
-            state.rightUserAnswersAmount = null
+            state.rightUserAnswersAmount = 0
             state.quizProgress = (state.activeQuestion/state.questions.length)*100
         },
         answearQuestion: (state, action) => {
