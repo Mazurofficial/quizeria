@@ -6,6 +6,7 @@ import throttle from 'lodash/throttle';
 import { modalReducer } from '../features/modalWindow/modalWindow-slice';
 import { cardsFilterReducer } from '../features/cardsFilter/cardsFilter-slice';
 import { quizesReducer } from '../features/quizes/quizes-slice';
+import {cardsSearchReducer} from '../features/cardsSearch/cardSearch-slice';
 
 const persistedStore = loadState()
 
@@ -15,7 +16,8 @@ export const store = configureStore({
     activeQuiz: activeQuizReducer,
     modal: modalReducer,
     filters: cardsFilterReducer,
-    quizes: quizesReducer
+    quizes: quizesReducer,
+    search: cardsSearchReducer
   },
   preloadedState: persistedStore,
   devTools: true
