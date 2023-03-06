@@ -4,15 +4,15 @@ import { useAppDispatch } from '../../../app/hooks';
 import { selectSearch, setSearch } from '../cardSearch-slice';
 import styles from './CardsSearchPanel.module.scss';
 
-type onSearch = ChangeEventHandler<HTMLInputElement>
+type onSearch = ChangeEventHandler<HTMLInputElement>;
 
 export const SearchPanel = (): [string, onSearch] => {
    const search = useAppSelector(selectSearch);
    const dispatch = useAppDispatch();
 
    const handleSearch: onSearch = (e) => {
-    dispatch(setSearch(e.target.value))
-   }
+      dispatch(setSearch(e.target.value));
+   };
 
-   return <div></div>
+   return <div></div>;
 };
