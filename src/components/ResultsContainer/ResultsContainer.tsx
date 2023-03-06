@@ -11,6 +11,8 @@ import Face3Star from './emotions_img/Face3Star.png';
 import Face2Star from './emotions_img/Face2Star.png';
 import Face1Star from './emotions_img/Face1Star.png';
 import { Stars } from './Stars/Stars';
+import { Button } from '../../ui/Button';
+
 
 export const ResultsContainer = () => {
    const checkedAnswers: AnswerType[] = useAppSelector(
@@ -44,9 +46,12 @@ export const ResultsContainer = () => {
 
    return (
       <div className={styles.resultsContainer}>
+         <div className={styles.resultBanner_circle1}></div>
+         <div className={styles.resultBanner_circle2}></div>
+         <div className={styles.resultBanner}>
          <img src={calcStarsChooseFace()} alt="Face" />
          <Stars stars={stars} />
-         <h2>Right user answers</h2>
+         {/* <h2>Right user answers</h2>
          {checkedAnswers.map((answer, index) => {
             if (answer[1]) {
                return (
@@ -84,9 +89,13 @@ export const ResultsContainer = () => {
                   </p>
                );
             }
-         })}
-         <h2>Right answers amount</h2>
-         {userRightAnswersAmount}
+         })} */}
+         <h1>Right answers amount {userRightAnswersAmount}/{checkedAnswers.length}</h1>
+         <p>Rorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+         <Button isLink={true} link={'#'}>
+            New quiz
+         </Button>
+      </div>
       </div>
    );
 };
