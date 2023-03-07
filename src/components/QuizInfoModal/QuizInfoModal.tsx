@@ -28,42 +28,44 @@ export const QuizInfoModal = () => {
             </div>
             <div className={styles.quizInfoModal_Info_Badges}>
                <table>
-                  <tr>
-                     <td>
-                        {' '}
-                        <h4>Difficulty:</h4>
-                     </td>
-                     <td>
-                        <p>{difficulty}</p>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        {' '}
-                        <h4>Category:</h4>
-                     </td>
-                     <td>
-                        <p>{category}</p>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        {' '}
-                        <h4>Questions:</h4>
-                     </td>
-                     <td>
-                        <p>{questions.length}</p>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        {' '}
-                        <h4>Type:</h4>
-                     </td>
-                     <td>
-                        <p>{type}</p>
-                     </td>
-                  </tr>
+                  <tbody>
+                     <tr>
+                        <td>
+                           {' '}
+                           <h4>Difficulty:</h4>
+                        </td>
+                        <td>
+                           <p>{difficulty}</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           {' '}
+                           <h4>Category:</h4>
+                        </td>
+                        <td>
+                           <p>{category}</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           {' '}
+                           <h4>Questions:</h4>
+                        </td>
+                        <td>
+                           <p>{questions.length}</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           {' '}
+                           <h4>Type:</h4>
+                        </td>
+                        <td>
+                           <p>{type}</p>
+                        </td>
+                     </tr>
+                  </tbody>
                </table>
             </div>
          </div>

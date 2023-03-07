@@ -14,7 +14,7 @@ export const BadgeList = ({ badges }: BadgeListProps) => {
       <div className={styles.badgeList}>
          {badges.map((badge) => {
             return (
-               <div onClick={(e) => e.stopPropagation()}>
+               <div key={badge} onClick={(e) => e.stopPropagation()}>
                   <Badge
                      title={badge}
                      onClick={() => dispatch(addFilter(badge))}

@@ -1,14 +1,15 @@
 import { RootState } from './../../app/store';
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
+
+
+const initialState: string = ''
 
 const cardsSearchSlice = createSlice({
     name: '@@cards-search',
-    initialState: '',
+    initialState,
     reducers: {
-        setSearch: (state, action: PayloadAction<string>) => {
-            state = action.payload;
-        }
+        setSearch: (_, action) => action.payload
     }
 })
 
