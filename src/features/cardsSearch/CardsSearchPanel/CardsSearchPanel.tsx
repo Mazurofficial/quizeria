@@ -1,18 +1,24 @@
-import { ChangeEventHandler } from 'react';
+import { ChangeEventHandler, useState } from 'react';
 import { useAppSelector } from '../../../app/hooks';
 import { useAppDispatch } from '../../../app/hooks';
 import { selectSearch, setSearch } from '../cardSearch-slice';
 import styles from './CardsSearchPanel.module.scss';
 
-type onSearch = ChangeEventHandler<HTMLInputElement>;
-
-export const SearchPanel = (): [string, onSearch] => {
+export const SearchPanel = () => {
    const search = useAppSelector(selectSearch);
    const dispatch = useAppDispatch();
+   // const [inputSearch, setInputSearch] = useState('');
 
-   const handleSearch: onSearch = (e) => {
+   const handleSearch: ChangeEventHandler<HTMLInputElement> = (e) => {
       dispatch(setSearch(e.target.value));
    };
 
-   return <div></div>;
+   return (
+      <input
+         type="text"
+         className={styles.search}
+         value={search}
+         onChange={handleSearch}
+      />
+   );
 };
