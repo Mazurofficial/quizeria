@@ -28,6 +28,7 @@ export const Question = ({ setAnswer }: QuestionProps) => {
             )}
             <VariantsList
                variants={activeQuestion.variants}
+               questionType={activeQuestion.type}
                setAnswer={setAnswer}
             />
          </div>

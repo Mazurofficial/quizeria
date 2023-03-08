@@ -780,6 +780,63 @@ const DisneyQuiz: QuizType = {
     answers: [Disney1Question.answer,Disney2Question.answer,Disney3Question.answer,Disney4Question.answer]
 };
 
+const TrueFalseQuestion1: QuestionType= {
+  id: 1,
+  img_url: 'https://i.insider.com/5c11046aa9054804ed7ff4c3?width=1300&format=jpeg&auto=webp',
+  title: "Is Denchick - chort ?",
+  type: "true/false",
+  variants: [
+      {
+          id: 'T',
+          text: 'True'
+      },
+      {
+          id: 'F',
+          text: 'False'
+      }
+  ],
+  answer: ['T', 'True'],
+  isLast: false
+};
 
-export const quizes: QuizType[] = [StarWarsQuiz,PlayStationQuiz, PixarQuiz,DisneyQuiz]
+const ImageQuestion1: QuestionType= {
+  id: 1,
+  title: "Is Denchick - chort ?",
+  type: "image",
+  variants: [
+      {
+          id: 'A',
+          imgUrl: 'https://i.insider.com/5c11046aa9054804ed7ff4c3?width=1300&format=jpeg&auto=webp'
+      },
+      {
+          id: 'B',
+          imgUrl: 'https://i.insider.com/5c11046aa9054804ed7ff4c3?width=1300&format=jpeg&auto=webp'
+      },
+      {
+          id: 'C',
+          imgUrl: 'https://i.insider.com/5c11046aa9054804ed7ff4c3?width=1300&format=jpeg&auto=webp'
+      },
+      {
+          id: 'D',
+          imgUrl: 'https://i.insider.com/5c11046aa9054804ed7ff4c3?width=1300&format=jpeg&auto=webp'
+      },
+  ],
+  answer: ['C','https://i.insider.com/5c11046aa9054804ed7ff4c3?width=1300&format=jpeg&auto=webp'],
+  isLast: true
+};
+
+const InteractiveQuiz: QuizType = {
+  id: '5',
+  img: 'https://i.insider.com/5c11046aa9054804ed7ff4c3?width=1300&format=jpeg&auto=webp',
+  title: "Interactive Quiz",
+  description: "Test your knowledge on classic Disney films!",
+  questions: [TrueFalseQuestion1, ImageQuestion1],
+  difficulty: 'easy',
+  category: 'films',
+  type: 'interactive',
+  answers: [TrueFalseQuestion1.answer, ImageQuestion1.answer]
+};
+
+
+export const quizes: QuizType[] = [StarWarsQuiz,PlayStationQuiz, PixarQuiz,DisneyQuiz, InteractiveQuiz]
 

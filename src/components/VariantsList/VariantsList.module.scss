@@ -1,1 +1,13 @@
-.variantsList {}
+.variantsList {
+    display: flex;
+    gap: 22px;
+    flex-direction: column;
+
+    margin-bottom: 30px;
+}
+
+.variantsList.image {
+    display: grid;
+    gap: 22px;
+    grid-template-columns: 1fr 1fr;
+}

@@ -34,8 +34,20 @@ export const Radio = ({
                : styles.container
          }
       >
-         <span className={styles.letter}>{variant.id}</span>
-         <span className={styles.variant}>{variant.text}</span>
+         {variant.text && (
+            <>
+               <span className={styles.letter}>{variant.id}</span>
+               <span className={styles.text}>{variant.text}</span>
+            </>
+         )}
+         {variant.imgUrl && (
+            <img
+               className={styles.image}
+               src={variant.imgUrl}
+               alt={variant.imgUrl}
+            />
+         )}
+
          <input
             type="radio"
             value={variant.text}
